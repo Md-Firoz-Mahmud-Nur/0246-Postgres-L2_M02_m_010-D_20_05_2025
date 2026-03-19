@@ -78,3 +78,18 @@ WHERE
 -- Can return a single value
 -- Can return multiple rows
 -- Can return a single column
+SELECT
+  employee_name,
+  salary,
+  department_name
+FROM
+  employees
+WHERE
+  department_name IN (
+    SELECT
+      department_name
+    FROM
+      employees
+    WHERE
+      department_name LIKE '%R%'
+  );
