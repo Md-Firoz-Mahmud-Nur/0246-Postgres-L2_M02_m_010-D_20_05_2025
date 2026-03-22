@@ -32,3 +32,25 @@ $$;
 
 SELECT
   emp_count ();
+
+CREATE
+OR replace FUNCTION delete_emp () RETURNS void LANGUAGE SQL AS
+$$
+  DELETE FROM employees
+  WHERE
+    employee_id = 30
+$$;
+
+SELECT
+  delete_emp ();
+
+CREATE
+OR replace FUNCTION delete_emp_by_id (p_emp_id INT) RETURNS void LANGUAGE SQL AS
+$$
+  DELETE FROM employees
+  WHERE
+    employee_id = p_emp_id
+$$;
+
+SELECT
+  delete_emp_by_id (29);
